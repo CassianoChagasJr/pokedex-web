@@ -1,0 +1,32 @@
+
+/* root para definição de cores, cores de fundo e etc */
+:root {
+  /* Cores destaque */
+  --vermelhoPokemon: #dc0a2d;
+  /* Cores de fundo */
+  --fundoCardPokemon: #ebebef;
+  --fundoGlobal: #f8f9fa;
+  /* Cores do texto */
+  --textoPrincipal: #0a0a0a;
+  --textoSecundario: #7f8c8d;
+  --textoClaro: #ffffff;
+  /* Cores dos tipos de pokemon */
+  --fogo: #ee8130;
+  --agua: #6390f0;
+  --grama: #7ac74c;
+  --eletrico: #f7d02c;
+  --psiquico: #f95587;
+  --gelo: #96d9d6;
+  --dragao: #6f35fc;
+  --sombrio: #705746;
+  --fada: #d685ad;
+  --normal: #a8a77a;
+  --lutador: #c22e28;
+  --voador: #a98ff3;
+  --venenoso: #a33ea1;
+  --terrestre: #e2bf65;
+  --pedra: #b6a136;
+  --inseto: #a6b91a;
+  --fantasma: #735797;
+  --aco: #b7b7ce;
+}
