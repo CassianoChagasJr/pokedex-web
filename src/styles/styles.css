@@ -30,3 +30,39 @@
   --fantasma: #735797;
   --aco: #b7b7ce;
 }
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@media screen and (min-width: 300px) {
+  .header-container{
+    border: 1px solid black;
+    background-color: var(--vermelhoPokemon);
+    max-width: auto;
+    height: auto;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* gap: 5rem; */
+  }
+
+  .header-title{
+    border: 1px solid black;
+    width: 45%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    padding: 0.5rem;
+  }
+
+  .header-input{
+    border: 1px solid black;
+    width: 45%;
+    height: 100%;
+    padding: 0.5rem;
+  }
+}
