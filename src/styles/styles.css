@@ -80,32 +80,61 @@ input::placeholder {
 
 .main-container {
   border: 1px solid black;
-  padding: 1rem 2rem;
+  padding: 1rem 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 3rem;
+  gap: 2.5rem;
 }
 
 .filter-container {
   border: 1px solid black;
   width: 100%;
-  height: 30%;
-  padding: 1.5rem;
+  /* padding: 1.5rem; */
 }
 
 .filter-content {
   border: 1px solid black;
   height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filter-title {
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  font-size: 300;
+  color: var(--textoSecundario);
 }
 
 .pokemon-card-container {
   border: 1px solid black;
   width: 100%;
-  padding: 1.5rem 2rem;
+  height: 100%;
+  padding: 1rem 0.5rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1f));
+  gap: 1.5rem;
+}
+
+.pokemon-card-content {
+  border: 1px solid purple;
+  width: 100%;
+  height: 100%;
+  padding: 0.5rem 0;
+  /* background-color: var(--agua); */
+}
+
+.pokemon-card {
+  /* border: 1px solid red; */
+  width: 100%;
+  height: auto;
 }
 
 @media screen and (min-width: 640px) {
