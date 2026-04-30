@@ -34,6 +34,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: var(--fundoGlobal);
 }
 
 .header-container {
@@ -56,7 +57,12 @@
   width: 100%;
   height: 100%;
   text-align: center;
+  background-color: var(--vermelhoPokemon);
   padding: 0.5rem;
+}
+
+.title-header {
+  background-color: transparent;
   color: var(--textoClaro);
 }
 
@@ -65,6 +71,7 @@
   width: 100%;
   height: 100%;
   padding: 0.5rem;
+  background-color: transparent;
 }
 
 .search-pokemon {
@@ -89,73 +96,65 @@ input::placeholder {
 }
 
 .filter-container {
-  /* border: 1px solid black; */
-  box-shadow: 1px 1px 3px 1px var(--textoPrincipal);
+  box-shadow: 1px 1px 5px 1px var(--aco);
   width: 100%;
+  height: auto;
   border-radius: 1rem;
-  /* padding: 1.5rem; */
-}
-
-.filter-content {
-  /* border: 1px solid black; */
-  height: 100%;
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.5rem;
+  padding: 0.5rem 0.8rem 0.5rem;
 }
 
 .filter-title {
-  border: 1px solid var(--textoSecundario);
   display: flex;
   align-items: center;
   justify-content: center;
   width: 50%;
-  padding: .5rem 0;
+  padding: 0.5rem 0;
   gap: 1rem;
   border-radius: 1rem;
 }
 
-.title-filter{
-  font-size: 1rem;
+.title-filter {
+  font-size: 1.3rem;
   color: var(--textoSecundario);
 }
-
-.grid-icon{
+.grid-icon {
   height: 1.25rem;
   width: 1.25rem;
 }
 
-.filter-button{
+.filter-button {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.heat-icon{
-  width: 20px;
-  height: 20px;
+.heat-icon {
+  width: 1.25rem;
+  height: 1.25rem;
   color: var(--textoPrincipal);
   background-color: var(--textoPrincipal);
 }
 
-.favorite-button{
-  font-size: 1rem;
+.favorite-button {
+  font-size: 1.3rem;
   color: var(--textoPrincipal);
   text-align: center;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: .5rem;
-  gap: .5rem;
+  padding: 0.8rem 0.5rem;
+  gap: 0.5rem;
   border-radius: 1rem;
-  border: 1px solid var(--textoSecundario);
+  border: none;
   background-color: var(--fundoCardPokemon);
   cursor: pointer;
+  box-shadow: 1px 1px 3px 1px var(--aco);
 }
 
 .pokemon-card-container {
@@ -168,45 +167,41 @@ input::placeholder {
   gap: 1.5rem;
 }
 
-
 .pokemon-card {
-  border: 1px solid black;
+  border: 1px solid var(--aco);
   width: 100%;
   height: auto;
+  padding: 1rem;
 }
 
 @media screen and (min-width: 640px) {
-  .header-container {
-    border: none;
-    background-color: var(--vermelhoPokemon);
-    width: 100%;
-    height: auto;
-    padding: 1rem;
+  .header-input {
+    /* border: none; */
+    width: 70%;
+  }
+
+  .filter-container {
+    height: 10vh;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
+    justify-content: space-between;
   }
 
-  .header-title {
-    border: none;
-    width: 45%;
-    text-align: center;
+  .filter-title {
+    width: auto;
     padding: 0.5rem;
-    color: var(--textoClaro);
+    gap: 0.5rem;
   }
 
-  .header-input {
-    border: none;
-    width: 45%;
-    height: 100%;
-    padding: 0.5rem;
+  .filter-button {
+    width: auto;
   }
-  .search-pokemon {
-    border-radius: 1rem;
-    border: none;
-    width: 100%;
+
+  .pokemon-card-container {
+    border: 1px solid var(--aco);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
   }
 }
 
