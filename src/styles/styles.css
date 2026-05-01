@@ -38,7 +38,6 @@
 }
 
 .header-container {
-  /* border: 1px solid black; */
   background-color: var(--vermelhoPokemon);
   width: 100%;
   padding: 1.5rem;
@@ -53,7 +52,6 @@
 }
 
 .header-title {
-  border: 1px solid black;
   width: 100%;
   height: 100%;
   text-align: center;
@@ -67,7 +65,6 @@
 }
 
 .header-input {
-  border: 1px solid black;
   width: 100%;
   height: 100%;
   padding: 0.5rem;
@@ -86,7 +83,6 @@ input::placeholder {
 }
 
 .main-container {
-  border: 1px solid black;
   padding: 1.5rem 1rem;
   display: flex;
   flex-direction: column;
@@ -158,12 +154,19 @@ input::placeholder {
 }
 
 .pokemon-card-container {
-  border: 1px solid black;
   width: 100%;
   height: 100%;
   padding: 1rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.pokemon-card-content {
+  height: auto;
+  width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1f));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
 }
 
@@ -174,42 +177,131 @@ input::placeholder {
   padding: 1rem;
 }
 
+.page-navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 1px 1px 3px 1px var(--aco);
+}
+
+.previous-btn-container {
+  padding: 0.5rem;
+  width: 33%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-identification-container {
+  padding: 0.5rem;
+  width: 33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.next-btn-container {
+  padding: 0.5rem;
+  width: 33%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @media screen and (min-width: 640px) {
-  .header-input {
-    /* border: none; */
-    width: 70%;
-  }
-
-  .filter-container {
-    height: 10vh;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-
   .filter-title {
     width: auto;
     padding: 0.5rem;
     gap: 0.5rem;
   }
 
-  .filter-button {
+  .previous-btn-container {
     width: auto;
   }
 
-  .pokemon-card-container {
-    border: 1px solid var(--aco);
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
+  .page-identification-container {
+    width: auto;
+  }
+
+  .next-btn-container {
+    width: auto;
   }
 }
 
 @media screen and (min-width: 768px) {
+  .header-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .header-title {
+    width: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header-input {
+    width: 45%;
+  }
+
+  .filter-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem;
+  }
+
+  .filter-button {
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .previous-btn-container {
+    width: auto;
+  }
+
+  .page-identification-container {
+    width: auto;
+  }
+
+  .next-btn-container {
+    width: auto;
+  }
 }
 
 @media screen and (min-width: 1024px) {
-}
+  .header-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
 
-@media screen and (min-width: 1280px) {
+  .header-title {
+    width: 45%;
+  }
+
+  .header-input {
+    width: 45%;
+  }
+
+  .previous-btn-container {
+    width: auto;
+  }
+
+  .page-identification-container {
+    width: auto;
+  }
+
+  .next-btn-container {
+    width: auto;
+  }
 }
