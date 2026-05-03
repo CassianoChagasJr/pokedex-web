@@ -75,7 +75,12 @@
   border-radius: 1rem;
   border: none;
   width: 100%;
-  padding: 12px 16px;
+  padding: 0.75rem 1rem;
+  padding-left: 2.81rem;
+  background-image: url(../assets/icons/search.svg);
+  background-repeat: no-repeat;
+  background-size: 1rem;
+  background-position: 1rem center;
 }
 
 input::placeholder {
@@ -129,11 +134,13 @@ input::placeholder {
   justify-content: center;
 }
 
-.heat-icon {
-  width: 1.25rem;
-  height: 1.25rem;
+.heart-icon {
+  width: 1rem;
+  height: 1rem;
   color: var(--textoPrincipal);
-  background-color: var(--textoPrincipal);
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 1rem cover;
 }
 
 .favorite-button {
@@ -160,6 +167,8 @@ input::placeholder {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  border: 1px solid var(--aco);
+  border-radius: 1rem;
 }
 
 .pokemon-card-content {
