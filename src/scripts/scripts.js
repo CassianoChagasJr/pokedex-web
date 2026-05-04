@@ -77,11 +77,14 @@ function renderizarCards(lista) {
 const inputPokemon = document.getElementById("pokemonInput");
 
 inputPokemon.addEventListener("input", () => {
-  buscarPokemonNaApi()
+  buscarPokemonNaApi();
 });
 
 async function buscarPokemonNaApi() {
-  const busca = document.getElementById("pokemonInput").value.toLowerCase().trim();
+  const busca = document
+    .getElementById("pokemonInput")
+    .value.toLowerCase()
+    .trim();
   const container = document.querySelector(".pokemon-card-content");
 
   if (!busca) {
@@ -98,9 +101,94 @@ async function buscarPokemonNaApi() {
 
     const pokemonSoli = await response.json();
 
+    const jaExiste = listaPokemon.find((p) => p.id === pokemonSoli.id);
+    if (!jaExiste) {
+      listaPokemon.push(pokemonSoli);
+    }
+
     // Como a função renderizarCards espera um ARRAY, passamos o resultado dentro de []
     renderizarCards([pokemonSoli]);
   } catch (error) {
     container.innerHTML = `<p class="erro-busca">Ops! O Pokémon "${busca}" não foi encontrado.</p>`;
   }
+}
+
+function abrirModal(id) {
+  const pokemon = listaPokemon.find((p) => p.id === id);
+  if (!pokemon) return;
+
+  // Tradução de tipos para cores das barras (pode usar suas variáveis do root)
+  const coresTipos = {
+    fire: "#ee8130",
+    water: "#6390f0",
+    grass: "#7ac74c",
+    electric: "#f7d02c",
+    poison: "#a33ea1",
+    flying: "#a98ff3",
+    bug: "#a6b91a",
+    normal: "#a8a77a",
+  };
+  const corPrincipal = coresTipos[pokemon.types[0].type.name] || "#7f8c8d";
+
+  // Preenchendo dados básicos
+  document.getElementById("modal-img").src =
+    pokemon.sprites.other["official-artwork"].front_default;
+  document.getElementById("modal-name").innerText = pokemon.name;
+  document.getElementById("modal-id").innerText =
+    `#${String(pokemon.id).padStart(4, "0")}`;
+  document.getElementById("modal-height").innerText =
+    `${pokemon.height / 10} M`;
+  document.getElementById("modal-weight").innerText =
+    `${pokemon.weight / 10} Kg`;
+
+  // Habilidades
+  document.getElementById("modal-abilities").innerHTML = pokemon.abilities
+    .map((a) => `<span class="ability-tag">${a.ability.name}</span>`)
+    .join("");
+
+  // Estatísticas (Barras)
+  const statsContainer = document.getElementById("modal-stats");
+  const nomesStats = {
+    hp: "HP",
+    attack: "Ataque",
+    defense: "Defesa",
+    "special-attack": "Sp. Atk",
+    "special-defense": "Sp. Def",
+    speed: "Velocidade",
+  };
+
+  statsContainer.innerHTML = pokemon.stats
+    .map((s) => {
+      const porc = (s.base_stat / 200) * 100; // Normalizado para 200 como máximo
+      return `
+            <div class="stat-row">
+                <span class="stat-name">${nomesStats[s.stat.name] || s.stat.name}</span>
+                <div class="stat-bar-bg">
+                    <div class="stat-bar-fill" style="width: ${porc}%; background-color: ${corPrincipal}"></div>
+                </div>
+                <span class="stat-number">${s.base_stat}</span>
+            </div>
+        `;
+    })
+    .join("");
+
+  document.getElementById("pokemon-modal").style.display = "flex";
+}
+
+// Fechamento
+document.getElementById("close-modal").onclick = () => {
+  document.getElementById("pokemon-modal").style.display = "none";
+};
+// Função para fechar o modal (adicione esta também!)
+function fecharModal() {
+  const modal = document.getElementById("pokemon-modal");
+  modal.style.display = "none";
+}
+
+function obterCorTipo(tipo) {
+  // Pega o valor da variável CSS definida no :root
+  const cor = getComputedStyle(document.documentElement)
+    .getPropertyValue(`--${tipo}`)
+    .trim();
+  return cor || "#777"; // Retorna cinza caso o tipo não exista no CSS
 }

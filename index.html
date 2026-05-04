@@ -68,57 +68,42 @@
     <footer></footer>
 
     <div id="pokemon-modal" class="modal">
-      <article id="modal-card" class="modal-content">
-        <button id="close-modal" class="close-button" onclick="fecharModal()">
-          <img
-            src="./src/assets/icons/circle-x.svg"
-            alt="Fechar"
-            class="close-x-img"
-          />
+      <div class="modal-content">
+        <button id="close-modal" class="close-button">
+          <img src="./src/assets/icons/circle-x.svg" alt="Fechar" class="close-img-modal" />
         </button>
-        <section class="modal-header">
-          <span id="modal-pokemon-id" class="pokemon-id-tag">#001</span>
-          <h2 id="modal-pokemon-name" class="pokemon-name">Bulbasaur</h2>
-          <div id="modal-pokemon-types" class="types-container"></div>
-        </section>
-        <section class="modal-img-container">
-          <img src="" alt="" id="modal-pokemon-img" class="pokemon-img" />
-        </section>
-        <section class="modal-details-box">
-          <div class="physical-info">
-            <div class="info-item">
-              <small>Altura</small>
-              <p><span id="modal-height">0.0</span> m</p>
-            </div>
-            <div class="info-item">
-              <small>Peso</small>
-              <p><span id="modal-weight">0.0</span> kg</p>
-            </div>
-          </div>
 
-          <div class="abilities-section">
-            <h3>Habilidades</h3>
-            <div id="modal-abilities" class="abilities-tags"></div>
-          </div>
+        <div class="modal-header-main">
+          <img src="" alt="" class="pokemon-img-main" id="modal-img" />
+          <h2 id="modal-name"></h2>
+          <span id="modal-id"></span>
+          <div id="modal-types" class="types-container"></div>
+        </div>
 
-          <div class="stats-section">
-            <h3>Estatísticas</h3>
-            <div id="modal-stats-list" class="stats-list">
-              <div class="stat-row">
-                <span class="stat-label">HP</span>
-                <div class="stat-bar-bg">
-                  <div
-                    id="stat-hp-fill"
-                    class="stat-bar-fill"
-                    style="width: 0%"
-                  ></div>
-                </div>
-                <span id="stat-hp-value" class="stat-number">0</span>
-              </div>
+        <div class="info-section">
+          <h3 class="section-title">INFORMAÇÕES</h3>
+          <div class="info-grid">
+            <div class="info-item">
+              <span class="label">Altura</span>
+              <span class="value" id="modal-height">0.7 M</span>
+            </div>
+            <div class="info-item">
+              <span class="label">Peso</span>
+              <span class="value" id="modal-weight">6.9 Kg</span>
             </div>
           </div>
-        </section>
-      </article>
+        </div>
+
+        <div class="info-section">
+          <h3 class="section-title">HABILIDADES</h3>
+          <div id="modal-abilities" class="abilities-container"></div>
+        </div>
+
+        <div class="info-section">
+          <h3 class="section-title">ESTATÍSTICAS BASE</h3>
+          <div id="modal-stats" class="stats-container"></div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
