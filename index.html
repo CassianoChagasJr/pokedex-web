@@ -19,6 +19,7 @@
           type="text"
           placeholder="Pesquise um pokemon..."
           class="search-pokemon"
+          id="pokemonInput"
         />
       </div>
     </header>
@@ -40,8 +41,7 @@
         </section>
       </section>
       <section class="pokemon-card-container">
-        <section class="pokemon-card-content">
-        </section>
+        <section class="pokemon-card-content"></section>
         <section class="page-navigation">
           <div class="previous-btn-container">
             <button type="button" class="previous-btn">
@@ -70,7 +70,11 @@
     <div id="pokemon-modal" class="modal">
       <article id="modal-card" class="modal-content">
         <button id="close-modal" class="close-button" onclick="fecharModal()">
-          <img src="./src/assets/icons/circle-x.svg" alt="Fechar" class="close-x-img" />
+          <img
+            src="./src/assets/icons/circle-x.svg"
+            alt="Fechar"
+            class="close-x-img"
+          />
         </button>
         <section class="modal-header">
           <span id="modal-pokemon-id" class="pokemon-id-tag">#001</span>

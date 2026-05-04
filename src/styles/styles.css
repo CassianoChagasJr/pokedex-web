@@ -172,7 +172,6 @@ input::placeholder {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  border: 1px solid var(--aco);
   border-radius: 1rem;
 }
 
@@ -182,21 +181,26 @@ input::placeholder {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
+  /* background-color: transparent; */
 }
 
 .pokemon-card {
-  border: 1px solid var(--aco);
+  /* border: 1px solid var(--aco); */
   border-radius: 1rem;
   width: 100%;
+  max-width: 24rem;
   height: auto;
+  max-height: auto;
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  align-items: center;
+  gap: 0.5rem;
   box-shadow: 1px 1px 3px 1px var(--aco);
 }
 
 .pokemon-name-container {
+  max-width: 20rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0.3rem;
@@ -233,12 +237,16 @@ input::placeholder {
 }
 
 .pokemon-img {
+  /* border: 1px solid black; */
   width: 100%;
+  max-width: 10rem;
+  background-size: cover;
   height: 100%;
   background-color: transparent;
 }
 
 .pokemon-footer-container {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -247,6 +255,7 @@ input::placeholder {
   padding: 1rem;
   border-radius: 1rem;
   box-shadow: 2px 2px 5px var(--aco);
+  /* border: 1px solid black; */
 }
 
 .pokemon-footer-container span{
@@ -698,7 +707,12 @@ input::placeholder {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    place-items: center;
     gap: 1.5rem;
+  }
+
+  .pokemon-card{
+    /* border: 1px solid black;d */
   }
 
   .previous-btn-container {

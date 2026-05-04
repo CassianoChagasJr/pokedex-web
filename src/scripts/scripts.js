@@ -69,6 +69,38 @@ function renderizarCards(lista) {
     `;
     })
     .join("");
+  // Removendo os espaços entre os elementos com o join()
 
   container.innerHTML = cardsHtml;
+}
+
+const inputPokemon = document.getElementById("pokemonInput");
+
+inputPokemon.addEventListener("input", () => {
+  buscarPokemonNaApi()
+});
+
+async function buscarPokemonNaApi() {
+  const busca = document.getElementById("pokemonInput").value.toLowerCase().trim();
+  const container = document.querySelector(".pokemon-card-content");
+
+  if (!busca) {
+    // Se o input estiver vazio, volta a exibir a lista inicial de 20
+    renderizarCards(listaPokemon);
+    return;
+  }
+
+  try {
+    // Faz a chamada direta para o Pokémon específico
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${busca}`);
+
+    if (!response.ok) throw new Error("Pokémon não encontrado");
+
+    const pokemonSoli = await response.json();
+
+    // Como a função renderizarCards espera um ARRAY, passamos o resultado dentro de []
+    renderizarCards([pokemonSoli]);
+  } catch (error) {
+    container.innerHTML = `<p class="erro-busca">Ops! O Pokémon "${busca}" não foi encontrado.</p>`;
+  }
 }
