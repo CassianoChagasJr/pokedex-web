@@ -54,8 +54,10 @@ Como este projeto utiliza apenas tecnologias nativas (Vanilla), não é necessá
 
 Projeto desenvolvido como parte dos estudos no curso de Análise e Desenvolvimento de Sistemas (Instituto Federal de Pernambuco, campus Jaboatão dos Guararapes). 
 
-**Aluno:** Cassiano Do Espirito Santo Chagas Junior
+**Aluno:** Cassiano Do Espirito Santo Chagas Junior 
+
 **Turma:** ADS 2025.2
+
 **Professor:** Josino Neto
 
 ## Referências
