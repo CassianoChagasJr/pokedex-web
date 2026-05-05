@@ -4,24 +4,24 @@ Uma aplicação interativa de Pokédex desenvolvida para a disciplina de Program
 
 ## 📋 Sobre o Projeto
 
-Este projeto tem como objetivo consolidar conhecimentos em desenvolvimento Front-End utilizando tecnologias fundamentais da Web. Ele foi construído seguindo o paradigma de Single Page Application (SPA) simplificada, onde o conteúdo é gerado dinamicamente via JavaScript conforme a interação do usuário[cite: 2].
+Este projeto tem como objetivo consolidar conhecimentos em desenvolvimento Front-End utilizando tecnologias fundamentais da Web. Ele foi construído seguindo o paradigma de Single Page Application (SPA) simplificada, onde o conteúdo é gerado dinamicamente via JavaScript conforme a interação do usuário.
 
 ### 🛠 Tecnologias Utilizadas
 
-- **HTML5**: Estruturação semântica da aplicação[cite: 2].
-- **CSS3**: Estilização moderna, incluindo layouts responsivos e design de cartões[cite: 2].
-- **JavaScript (ES6+)**: Lógica de consumo de API (Fetch/Async-Await), manipulação do DOM e gerenciamento de estado[cite: 2].
-- **PokeAPI**: Fonte de dados externa para informações dos Pokémons[cite: 2].
+- **HTML5**: Estruturação semântica da aplicação.
+- **CSS3**: Estilização moderna, incluindo layouts responsivos e design de cartões.
+- **JavaScript (ES6+)**: Lógica de consumo de API (Fetch/Async-Await), manipulação do DOM e gerenciamento de estado.
+- **PokeAPI**: Fonte de dados externa para informações dos Pokémons.
 
 ---
 
 ## ✨ Funcionalidades Principais
 
-- **Listagem Dinâmica**: Carregamento de Pokémons em lotes de 20 por página para otimização de performance[cite: 2].
-- **Busca em Tempo Real**: Filtro de busca por nome ou ID que atualiza a interface instantaneamente[cite: 2].
-- **Sistema de Favoritos**: Permite salvar Pokémons favoritos com persistência de dados utilizando o `localStorage` do navegador[cite: 2].
-- **Modal de Detalhes**: Visualização expandida ao clicar em um card, exibindo altura, peso, habilidades e barras de estatísticas coloridas conforme o tipo do Pokémon[cite: 2].
-- **Paginação**: Navegação fluida entre as diferentes páginas da Pokédex[cite: 2].
+- **Listagem Dinâmica**: Carregamento de Pokémons em lotes de 20 por página para otimização de performance.
+- **Busca em Tempo Real**: Filtro de busca por nome ou ID que atualiza a interface instantaneamente.
+- **Sistema de Favoritos**: Permite salvar Pokémons favoritos com persistência de dados utilizando o `localStorage` do navegador.
+- **Modal de Detalhes**: Visualização expandida ao clicar em um card, exibindo altura, peso, habilidades e barras de estatísticas coloridas conforme o tipo do Pokémon.
+- **Paginação**: Navegação fluida entre as diferentes páginas da Pokédex.
 
 ---
 
