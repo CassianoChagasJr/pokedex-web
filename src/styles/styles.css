@@ -255,7 +255,7 @@ input::placeholder {
   /* border: 1px solid black; */
   /* width: 50%; */
   text-transform: capitalize;
-  font-size: 2rem;
+  font-size: 1.5rem;
   padding: 0.5rem;
   background-color: transparent;
 }
@@ -264,7 +264,7 @@ input::placeholder {
   /* border: 1px solid black; */
   width: auto;
   text-align: end;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   padding: 0.5rem;
   background-color: transparent;
 }
