@@ -2,6 +2,7 @@
 :root {
   /* Cores destaque */
   --vermelhoPokemon: #dc0a2d;
+  --azulPokemon: #0075BE;
   /* Cores de fundo */
   --fundoCardPokemon: #ebebef;
   --fundoGlobal: #f8f9fa;
@@ -34,7 +35,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: var(--fundoGlobal);
+  /* background-color: var(--fundoGlobal); */
 }
 
 .header-container {
@@ -49,6 +50,16 @@
   position: sticky;
   top: 0;
   /* z-index: 1; */
+}
+
+.btn-home{
+  /* border: 1px solid black; */
+  border-radius: 1rem;
+  padding: 0.5rem;
+  background-color: transparent;
+  /* box-shadow: 2px 2px 5px var(--eletrico); */
+  border: 1px solid var(--textoPrincipal);
+  cursor: pointer;
 }
 
 .header-title {
@@ -94,6 +105,7 @@ input::placeholder {
   justify-content: center;
   align-items: center;
   gap: 2.5rem;
+  /* background-color: var(--azulPokemon); */
 }
 
 .filter-container {
@@ -106,6 +118,7 @@ input::placeholder {
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 0.8rem 0.5rem;
+  background-color: var(--fundoCardPokemon);
 }
 
 .filter-title {
@@ -180,6 +193,7 @@ input::placeholder {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  place-items: center;
   gap: 1.5rem;
   /* background-color: transparent; */
 }
@@ -197,6 +211,11 @@ input::placeholder {
   align-items: center;
   gap: 0.5rem;
   box-shadow: 1px 1px 3px 1px var(--aco);
+  transition: 0.3s;
+}
+
+.pokemon-card:hover{
+  transform: scale(1.1);
 }
 
 .pokemon-name-container {
@@ -244,6 +263,7 @@ input::placeholder {
   background-size: cover;
   height: 100%;
   background-color: transparent;
+  filter: drop-shadow(4px 4px 8px rgba(0,0,0,0.5));
 }
 
 .pokemon-footer-container {
@@ -382,198 +402,212 @@ input::placeholder {
   transform: rotate(180deg);
 }
 
+/* --- Overlay do Modal --- */
 .modal {
-  display: none;
+  display: none; /* Alterado para flex via JS (.modal.open) */
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.85);
-  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 1000;
+
+  /* Centralização Absoluta */
   justify-content: center;
   align-items: center;
-  backdrop-filter: blur(5px); /* Efeito de desfoque no fundo */
-  padding: 1.25rem;
+
+  backdrop-filter: blur(0.3125rem); /* 5px */
+  padding: 1rem; /* Margem mínima para o card não colar na borda do celular */
 }
 
-/* --- Container Principal do Modal --- */
-/* Modal Geral */
-.modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  z-index: 2;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
-
+/* --- Card do Modal --- */
 .modal-content {
-  background-color: var(--fundoCardPokemon); /* Cor que você pediu */
+  background-color: var(--fundoCardPokemon);
+  color: var(--textoPrincipal);
+
+  /* Dimensões Adaptáveis */
   width: 100%;
-  max-width: 450px;
-  border-radius: 20px;
-  padding: 30px;
+  max-width: 23rem; /* ~360px: tamanho ideal para mobile */
+  max-height: 85vh; /* Garante que caiba na tela mesmo com o teclado aberto */
+
+  border-radius: 1rem;
+  padding: 1.5rem; /* ~24px */
   position: relative;
-  max-height: 90vh;
-  overflow-y: auto;
-  color: var(--textoPrincipal); /* Cor do título/texto principal */
-  text-transform: capitalize;
+  overflow-y: auto; Scroll; /*interno se o conteúdo for longo */
+
   display: flex;
   flex-direction: column;
-  justify-content: center;
   gap: 1rem;
+  text-transform: capitalize;
+
+  /* Animação de entrada */
+  animation: modalScale 0.3s ease-out forwards;
 }
 
 .close-button {
+
   position: absolute;
-  top: 10px;
+
+  top: 5px;
+
   right: 10px;
+
   background-color: transparent;
+
   border: none;
+
   cursor: pointer;
+
   transition: 0.3s;
+
 }
+
+
 
 .close-img-modal{
+
   width: 2rem;
-  height: 2rem;
-  background-color: transparent;
-}
 
+height: 2rem;
+background-color: transparent;
+
+}
 .close-button:hover{
+
   transform: scale(1.4);
+
 }
 
-/* Header do Modal */
+/* --- Header e Imagem --- */
 .modal-header-main {
   text-align: center;
-  margin-bottom: 25px;
-  /* border: 1px solid black; */
-  background-color: transparent;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  box-shadow: 0.125rem 0.125rem 0.3125rem var(--aco);
 }
 
 .pokemon-img-main {
-  width: 11rem;
-  background-color: transparent;
+  width: 10rem; /* Reduzido levemente para caber melhor no mobile */
+  height: auto;
+  margin: 0 auto;
+  display: block;
 }
 
 #modal-id {
-  /* border: 1px solid black; */
-  color: var(--textoSecundario); /* Texto secundário */
-  display: block;
+  color: var(--textoSecundario);
+  font-size: 0.875rem;
   font-weight: bold;
-  background-color: var(--fundoCardPokemon);
 }
 
-/* Seções */
+/* --- Seções de Informação --- */
+.info-section {
+  border-radius: 1rem;
+  box-shadow: 0.125rem 0.125rem 0.3125rem var(--aco);
+  padding: 0.5rem;
+  /* border: 1px solid black; */
+}
+
 .section-title {
-  border: 1px solid black;
-  font-size: 14px;
-  color: var(--textoSecundario); /* Texto secundário */
-  padding-bottom: 5px;
-  margin-bottom: 15px;
-  background-color: var(--fundoCardPokemon);
+  font-size: 0.875rem; /* 14px */
+  color: var(--textoSecundario);
+  padding: 0.5rem;
+  font-weight: bold;
+  text-align: center;
 }
 
 .info-grid {
-  /* border: 1px solid black; */
   display: flex;
-  gap: 2rem;
-  background-color: var(--fundoCardPokemon);
-  padding: 0.5rem 0;
-  /* margin-bottom: 20px; */
+  justify-content: space-around;
+  gap: 1rem;
+  padding: 0.5rem;
 }
 
 .label {
-  display: block;
   color: var(--textoSecundario);
-  font-size: 1rem;
-  /* border: 1px solid black; */
-  background-color: var(--fundoCardPokemon);
+  font-size: 0.75rem; /* 12px */
+  display: block;
 }
 
 .value {
   font-weight: bold;
   font-size: 1rem;
-  /* border: 1px solid black; */
-  background-color: var(--fundoCardPokemon);
 }
 
-/* Barras de Status */
+.abilities-container{
+  /* border: 1px solid black; */
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0.5rem;
+  border-radius: 1rem;
+}
+
+.ability-tag{
+  /* border: 1px solid black; */
+  padding: 0.5rem;
+  border-radius: 1rem;
+  box-shadow: 2px 2px 5px var(--aco);
+}
+
+/* --- Estatísticas e Barras --- */
 .stat-row {
   display: flex;
   align-items: center;
-  gap: 15px;
-  margin-bottom: 10px;
+  gap: 0.75rem;
+  margin-bottom: 0.625rem;
 }
 
 .stat-name {
-  width: 100px;
-  font-size: 12px;
-  color: #7f8c8d;
+  width: 5rem; /* ~80px fixos para alinhar os nomes */
+  font-size: 0.75rem;
+  color: var(--textoSecundario);
   text-transform: uppercase;
 }
 
 .stat-bar-bg {
   flex: 1;
   background-color: #d1d1d1;
-  height: 12px;
-  border-radius: 6px;
+  height: 0.75rem; /* 12px */
+  border-radius: 0.5rem;
   overflow: hidden;
 }
 
 .stat-bar-fill {
   height: 100%;
-  border-radius: 6px;
-  transition: width 0.5s ease-in-out;
-}
-
-.stat-number {
-  width: 30px;
-  text-align: right;
-  font-weight: bold;
-  font-size: 13px;
-}
-
-/* Fundo da barra de progresso (mais escuro para dar contraste com a cor do tipo) */
-.stat-bar-bg {
-  background-color: var(--vermelhoPokemon);
-}
-
-#modal-pokemon-id {
-  color: #777777;
-}
-
-.stat-bar-fill {
-  height: 100%;
-  background-color: var(--fundoCardPokemon);
-  border-radius: 1rem;
-  width: 0%; /* Começa em 0 para a animação do JS */
+  border-radius: 0.5rem;
   transition: width 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .stat-number {
-  width: 35px;
+  width: 2.1875rem; /* 35px */
   text-align: right;
-  font-size: 0.9rem;
+  font-size: 0.8125rem;
   font-weight: bold;
 }
 
-/* --- Animação de entrada do Modal --- */
+/* --- Botão Fechar --- */
+.close-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.close-img-modal {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
 @keyframes modalScale {
   from {
-    transform: scale(0.7);
+    transform: scale(0.85);
     opacity: 0;
   }
   to {
     transform: scale(1);
     opacity: 1;
   }
-}
-
-/* Classe utilitária para abrir via JS */
-.modal.open {
-  display: flex;
 }
 
 @media screen and (min-width: 640px) {
@@ -651,6 +685,8 @@ input::placeholder {
   }
 
   .header-title {
+    display: flex;
+    justify-content: flex-start;
     width: 45%;
   }
 
@@ -664,11 +700,7 @@ input::placeholder {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     place-items: center;
-    gap: 1.5rem;
-  }
-
-  .pokemon-card {
-    /* border: 1px solid black;d */
+          gap: 1.5rem;
   }
 
   .previous-btn-container {

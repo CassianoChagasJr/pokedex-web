@@ -113,6 +113,87 @@ async function buscarPokemonNaApi() {
   }
 }
 
+let offset = 0;
+const limit = 20;
+let totalPokemons = 0; // Armazenará o total vindo da API
+
+// Seletores baseados no seu HTML
+const btnPrev = document.querySelector(".previous-btn");
+const btnNext = document.querySelector(".next-btn");
+const pageIndicator = document.querySelector(".page-identification-container");
+
+async function buscarPokemons(novoOffset) {
+  offset = novoOffset;
+  const url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`;
+
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+
+    totalPokemons = data.count; // Total de pokémons na API (atualmente ~1302)
+
+    const promises = data.results.map((pokemon) =>
+      fetch(pokemon.url).then((res) => res.json()),
+    );
+    const detalhesPokemons = await Promise.all(promises);
+
+    listaPokemon = detalhesPokemons;
+    renderizarCards(listaPokemon);
+
+    atualizarInterfaceNavegacao();
+  } catch (error) {
+    console.error("Erro ao buscar Pokémon:", error);
+  }
+}
+
+function atualizarInterfaceNavegacao() {
+  const paginaAtual = offset / limit + 1;
+  const totalPaginas = Math.ceil(totalPokemons / limit);
+
+  // Atualiza o texto "Página X de N"
+  if (pageIndicator) {
+    pageIndicator.innerText = `Página ${paginaAtual} de ${totalPaginas}`;
+  }
+
+  // Desativa/Ativa os botões
+  btnPrev.disabled = offset === 0;
+  // Evita avançar além do total disponível
+  btnNext.disabled = offset + limit >= totalPokemons;
+
+  // Opcional: Adiciona uma classe visual de desativado se o seu CSS permitir
+  btnPrev.style.opacity = btnPrev.disabled ? "0.5" : "1";
+  btnNext.style.opacity = btnNext.disabled ? "0.5" : "1";
+}
+
+// Eventos de Clique
+btnNext.addEventListener("click", () => {
+  if (offset + limit < totalPokemons) {
+    buscarPokemons(offset + limit);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+});
+
+btnPrev.addEventListener("click", () => {
+  if (offset > 0) {
+    buscarPokemons(offset - limit);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+});
+// Inicialização
+buscarPokemons(0);
+
+const btnHome = document.getElementById("btn-home");
+
+if (btnHome) {
+  btnHome.addEventListener("click", () => {
+    buscarPokemons(0);
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
+    console.log("Voltando para a primeira página...");
+  });
+}
+
 function abrirModal(id) {
   const pokemon = listaPokemon.find((p) => p.id === id);
   if (!pokemon) return;
