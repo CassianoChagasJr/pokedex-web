@@ -1,6 +1,6 @@
 # 🚀 Pokédex Web - Vanilla JS
 
-Uma aplicação interativa de Pokédex desenvolvida para a disciplina de Programação Web II do IFPE. O projeto consome a API pública **PokeAPI** para listar, pesquisar e detalhar as informações dos Pokémons em tempo real.
+Uma aplicação interativa de Pokédex desenvolvida para a disciplina de Programação Web II do Instituto Federal de Pernambuco. O projeto consome a API pública **PokeAPI** para listar, pesquisar e detalhar as informações dos Pokémons em tempo real.
 
 ## 📋 Sobre o Projeto
 
@@ -45,9 +45,15 @@ Como este projeto utiliza apenas tecnologias nativas (Vanilla), não é necessá
 
 ```text
 ├── src/
-│   ├── assets/        # Ícones (coração, setas) e imagens
-│   ├── css/           # Arquivos de estilização
-│   └── js/            # Lógica da aplicação (script.js)
+│   ├── assets/        # Ícones (coração, setas)
+│   ├── styles/           # Arquivos de estilização (styles.css)
+│   └── scripts/            # Lógica da aplicação (script.js)
 ├── index.html         # Estrutura principal
 └── README.md          # Documentação do projeto
 ```
+
+Projeto desenvolvido por Cassiano do Espirito Santo Chagas Junior como parte dos estudos no curso de Análise e Desenvolvimento de Sistemas (Instituto Federal de Pernambuco, campus Jaboatão dos Guararapes). Professor Josino Neto
+
+## Referências
+
+## Ícones: **https://www.flaticon.com/search?word**
