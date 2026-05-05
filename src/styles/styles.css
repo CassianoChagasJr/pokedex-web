@@ -2,7 +2,7 @@
 :root {
   /* Cores destaque */
   --vermelhoPokemon: #dc0a2d;
-  --azulPokemon: #0075BE;
+  --azulPokemon: #0075be;
   /* Cores de fundo */
   --fundoCardPokemon: #ebebef;
   --fundoGlobal: #f8f9fa;
@@ -61,8 +61,8 @@
   align-items: center;
   justify-content: center;
   transition: all 0.2s ease-in-out;
-  
-  box-shadow: 0 1px 0 var(--aco); 
+
+  box-shadow: 0 1px 0 var(--aco);
   text-decoration: none;
 }
 
@@ -235,7 +235,7 @@ input::placeholder {
   transition: 0.3s;
 }
 
-.pokemon-card:hover{
+.pokemon-card:hover {
   transform: scale(1.1);
 }
 
@@ -284,7 +284,7 @@ input::placeholder {
   background-size: cover;
   height: 100%;
   background-color: transparent;
-  filter: drop-shadow(4px 4px 8px rgba(0,0,0,0.5));
+  filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.5));
 }
 
 .pokemon-footer-container {
@@ -443,16 +443,14 @@ input::placeholder {
 .modal-content {
   background-color: var(--fundoCardPokemon);
   color: var(--textoPrincipal);
-
-  /* Dimensões Adaptáveis */
   width: 100%;
-  max-width: 23rem; /* ~360px: tamanho ideal para mobile */
-  max-height: 85vh; /* Garante que caiba na tela mesmo com o teclado aberto */
+  max-width: 26rem;
+  max-height: 85vh;
 
   border-radius: 1rem;
   padding: 1.5rem; /* ~24px */
   position: relative;
-  overflow-y: auto; Scroll; /*interno se o conteúdo for longo */
+  overflow-y: auto; /*interno se o conteúdo for longo */
 
   display: flex;
   flex-direction: column;
@@ -463,22 +461,13 @@ input::placeholder {
   animation: modalScale 0.3s ease-out forwards;
 }
 
-
-
-
-
-.close-img-modal{
-
+.close-img-modal {
   width: 2rem;
-
-height: 2rem;
-background-color: transparent;
-
+  height: 2rem;
+  background-color: transparent;
 }
-.close-button:hover{
-
+.close-button:hover {
   transform: scale(1.4);
-
 }
 
 /* --- Header e Imagem --- */
@@ -494,7 +483,7 @@ background-color: transparent;
   height: auto;
   margin: 0 auto;
   display: block;
-  filter: drop-shadow(4px 4px 8px rgba(0,0,0,0.5));
+  filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.5));
 }
 
 #modal-id {
@@ -537,7 +526,7 @@ background-color: transparent;
   font-size: 1rem;
 }
 
-.abilities-container{
+.abilities-container {
   /* border: 1px solid black; */
   display: flex;
   align-items: center;
@@ -546,7 +535,7 @@ background-color: transparent;
   border-radius: 1rem;
 }
 
-.ability-tag{
+.ability-tag {
   /* border: 1px solid black; */
   padding: 0.5rem;
   border-radius: 1rem;
@@ -706,7 +695,7 @@ background-color: transparent;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     place-items: center;
-          gap: 1.5rem;
+    gap: 1.5rem;
   }
 
   .previous-btn-container {
